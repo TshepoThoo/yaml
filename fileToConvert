@@ -1,0 +1,812 @@
+openapi: 3.0.1
+info:
+  title: Merchant Management Internal API
+  description: API to understand request and response schema for Merchant Management Internal API.
+  version: 1.0.0.1
+  x-ibm-name: merchant-management-internal-api
+servers:
+  - url: https://sit-gateway.apinp.standardbank.co.za/sit/sit/MerchantManagementAPI
+paths:
+  /api/v1/Geography/GetCountries:
+    get:
+      tags:
+        - Geography
+      summary: Gets a list of countries.
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CountryModelListRestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountryModelListRestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CountryModelListRestResult'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+        '500':
+          description: Server Error
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+  /api/v1/Geography/GetProvincesByCountryCode:
+    get:
+      tags:
+        - Geography
+      summary: Gets a list of provices by country code.
+      parameters:
+        - name: countryCode
+          in: query
+          description: ''
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProvinceModelListRestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProvinceModelListRestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProvinceModelListRestResult'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+        '500':
+          description: Server Error
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+  /api/v1/Industry/GetTypes:
+    get:
+      tags:
+        - Industry
+      summary: Gets a list of industry types.
+      parameters: []
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IndustryTypeModelListRestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndustryTypeModelListRestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IndustryTypeModelListRestResult'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+        '500':
+          description: Server Error
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+  /api/v1/Merchant/Create:
+    post:
+      tags:
+        - Merchant
+      summary: Creates a new merchant.
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMerchantRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateMerchantRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateMerchantRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CreateMerchantResultRestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateMerchantResultRestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CreateMerchantResultRestResult'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+        '500':
+          description: Server Error
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+  /api/v1/Merchant/Update:
+    post:
+      tags:
+        - Merchant
+      summary: Updates a merchant.
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMerchantRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMerchantRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UpdateMerchantRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+        '500':
+          description: Server Error
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+  /api/v1/Merchant/GetById:
+    get:
+      tags:
+        - Merchant
+      summary: Gets a merchant by id.
+      parameters:
+        - name: merchantId
+          in: query
+          description: ''
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/MerchantModelRestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MerchantModelRestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/MerchantModelRestResult'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+        '500':
+          description: Server Error
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+  /api/v1/Merchant/GetBySapBpId:
+    get:
+      tags:
+        - Merchant
+      summary: Gets a merchant by sapBpId.
+      parameters:
+        - name: sapBpId
+          in: query
+          description: ''
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/MerchantModelRestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MerchantModelRestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/MerchantModelRestResult'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+        '500':
+          description: Server Error
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+  /api/v1/Merchant/GetTypes:
+    get:
+      tags:
+        - Merchant
+      summary: Gets a list of merchant types.
+      parameters: []
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/MerchantTypeModelListRestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MerchantTypeModelListRestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/MerchantTypeModelListRestResult'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+        '500':
+          description: Server Error
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RestResult'
+components:
+  schemas:
+    AccountModel:
+      required:
+        - accountNumber
+        - bankCode
+        - branchNumber
+        - countryCode
+      type: object
+      properties:
+        accountNumber:
+          type: string
+        branchNumber:
+          type: string
+        bankCode:
+          type: string
+        countryCode:
+          type: string
+      additionalProperties: false
+    AddressModel:
+      required:
+        - countryCode
+        - postalCode
+        - provinceId
+      type: object
+      properties:
+        addressLine1:
+          type: string
+          nullable: true
+        addressLine2:
+          type: string
+          nullable: true
+        suburb:
+          type: string
+          nullable: true
+        postalCode:
+          type: integer
+          format: int32
+        provinceId:
+          type: integer
+          format: int32
+        countryCode:
+          type: string
+      additionalProperties: false
+    CountryModel:
+      type: object
+      properties:
+        code:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        active:
+          type: boolean
+      additionalProperties: false
+    CountryModelListRestResult:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int32
+        correlationId:
+          type: string
+          format: uuid
+        title:
+          type: string
+          nullable: true
+        errors:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+          nullable: true
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CountryModel'
+          nullable: true
+      additionalProperties: false
+    CreateMerchantRequest:
+      required:
+        - account
+        - address
+        - companyRegistrationDate
+        - companyRegistrationNumber
+        - contactPerson
+        - merchantTypeId
+        - name
+        - sapBpId
+        - tradingName
+      type: object
+      properties:
+        name:
+          type: string
+        tradingName:
+          type: string
+        companyRegistrationNumber:
+          type: string
+        companyRegistrationDate:
+          type: string
+          format: date-time
+        merchantTypeId:
+          type: integer
+          format: int32
+        industryTypeId:
+          type: integer
+          format: int32
+          nullable: true
+        account:
+          $ref: '#/components/schemas/AccountModel'
+        address:
+          $ref: '#/components/schemas/AddressModel'
+        contactPerson:
+          $ref: '#/components/schemas/PersonModel'
+        cellphoneNumber:
+          type: string
+          nullable: true
+        emailAddress:
+          type: string
+          nullable: true
+        sapBpId:
+          type: string
+      additionalProperties: false
+    CreateMerchantResult:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        referenceNumber:
+          type: string
+          nullable: true
+      additionalProperties: false
+    CreateMerchantResultRestResult:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int32
+        correlationId:
+          type: string
+          format: uuid
+        title:
+          type: string
+          nullable: true
+        errors:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+          nullable: true
+        data:
+          $ref: '#/components/schemas/CreateMerchantResult'
+      additionalProperties: false
+    IndustryTypeModel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+      additionalProperties: false
+    IndustryTypeModelListRestResult:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int32
+        correlationId:
+          type: string
+          format: uuid
+        title:
+          type: string
+          nullable: true
+        errors:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+          nullable: true
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/IndustryTypeModel'
+          nullable: true
+      additionalProperties: false
+    MerchantModel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        tradingName:
+          type: string
+          nullable: true
+        companyRegistrationNumber:
+          type: string
+          nullable: true
+        companyRegistrationDate:
+          type: string
+          format: date-time
+          nullable: true
+        merchantTypeId:
+          type: integer
+          format: int32
+        industryTypeId:
+          type: integer
+          format: int32
+          nullable: true
+        account:
+          $ref: '#/components/schemas/AccountModel'
+        address:
+          $ref: '#/components/schemas/AddressModel'
+        contactPerson:
+          $ref: '#/components/schemas/PersonModel'
+        cellphoneNumber:
+          type: string
+          nullable: true
+        emailAddress:
+          type: string
+          nullable: true
+        sapBpId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    MerchantModelRestResult:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int32
+        correlationId:
+          type: string
+          format: uuid
+        title:
+          type: string
+          nullable: true
+        errors:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+          nullable: true
+        data:
+          $ref: '#/components/schemas/MerchantModel'
+      additionalProperties: false
+    MerchantTypeModel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        archived:
+          type: boolean
+      additionalProperties: false
+    MerchantTypeModelListRestResult:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int32
+        correlationId:
+          type: string
+          format: uuid
+        title:
+          type: string
+          nullable: true
+        errors:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+          nullable: true
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/MerchantTypeModel'
+          nullable: true
+      additionalProperties: false
+    PersonModel:
+      required:
+        - cellphoneNumber
+        - emailAddress
+        - name
+        - surname
+      type: object
+      properties:
+        name:
+          type: string
+        surname:
+          type: string
+        cellphoneNumber:
+          type: string
+        landlineNumber:
+          type: string
+          nullable: true
+        emailAddress:
+          type: string
+        address:
+          $ref: '#/components/schemas/AddressModel'
+      additionalProperties: false
+    ProvinceModel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        active:
+          type: boolean
+      additionalProperties: false
+    ProvinceModelListRestResult:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int32
+        correlationId:
+          type: string
+          format: uuid
+        title:
+          type: string
+          nullable: true
+        errors:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+          nullable: true
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProvinceModel'
+          nullable: true
+      additionalProperties: false
+    RestResult:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int32
+        correlationId:
+          type: string
+          format: uuid
+        title:
+          type: string
+          nullable: true
+        errors:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+          nullable: true
+        data:
+          nullable: true
+      additionalProperties: false
+    UpdateMerchantRequest:
+      required:
+        - merchantId
+        - merchantTypeId
+      type: object
+      properties:
+        merchantId:
+          type: integer
+          format: int32
+        merchantTypeId:
+          type: integer
+          format: int32
+        industryTypeId:
+          type: integer
+          format: int32
+          nullable: true
+        contactPerson:
+          $ref: '#/components/schemas/PersonModel'
+        address:
+          $ref: '#/components/schemas/AddressModel'
+        cellphoneNumber:
+          type: string
+          nullable: true
+        emailAddress:
+          type: string
+          nullable: true
+      additionalProperties: false
+  securitySchemes:
+    clientID:
+      type: apiKey
+      in: header
+      name: X-IBM-Client-Id
+    clientSecret:
+      in: header
+      name: X-IBM-Client-Secret
+      type: apiKey
+x-ibm-configuration:
+  type: rest
+  phase: realized
+  enforced: true
+  testable: true
+  cors:
+    enabled: true
+security:
+  - clientID: []
+    clientSecret: []
